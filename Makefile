@@ -6,7 +6,8 @@ build-all: codis-server codis-dashboard codis-proxy codis-admin codis-ha codis-f
 
 codis-deps:
 	@mkdir -p bin config && bash version
-	@make --no-print-directory -C vendor/github.com/spinlock/jemalloc-go/
+	@go mod tidy
+	#@make --no-print-directory -C vendor/github.com/spinlock/jemalloc-go/
 
 codis-dashboard: codis-deps
 	go build -i -o bin/codis-dashboard ./cmd/dashboard
